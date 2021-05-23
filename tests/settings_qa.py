@@ -1,4 +1,4 @@
-from api_yamdb.settings import *
+from yamdb_final.settings import *
 
 DATABASES = {
     'default': {
