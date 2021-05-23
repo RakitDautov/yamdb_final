@@ -8,34 +8,61 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='User',
+            name="User",
             fields=[
-                ('id', models.AutoField(
-                    auto_created=True,
-                    primary_key=True, serialize=False, verbose_name='ID')),
-                ('password', models.CharField(
-                    max_length=128, verbose_name='password')),
-                ('last_login', models.DateTimeField(
-                    blank=True, null=True, verbose_name='last login')),
-                ('email', models.EmailField(
-                    db_index=True, max_length=254, unique=True,
-                    verbose_name='email address')),
-                ('role', models.TextField(
-                    choices=[('user', 'User'), ('moderator', 'Moderator'),
-                             ('admin', 'Admin')], default='user')),
-                ('bio', models.TextField(
-                    blank=True, max_length=150, null=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "password",
+                    models.CharField(max_length=128, verbose_name="password"),
+                ),
+                (
+                    "last_login",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="last login"
+                    ),
+                ),
+                (
+                    "email",
+                    models.EmailField(
+                        db_index=True,
+                        max_length=254,
+                        unique=True,
+                        verbose_name="email address",
+                    ),
+                ),
+                (
+                    "role",
+                    models.TextField(
+                        choices=[
+                            ("user", "User"),
+                            ("moderator", "Moderator"),
+                            ("admin", "Admin"),
+                        ],
+                        default="user",
+                    ),
+                ),
+                (
+                    "bio",
+                    models.TextField(blank=True, max_length=150, null=True),
+                ),
             ],
             options={
-                'ordering': ['email'],
+                "ordering": ["email"],
             },
             managers=[
-                ('objects', users.managers.UserManager()),
+                ("objects", users.managers.UserManager()),
             ],
         ),
     ]
