@@ -57,11 +57,8 @@ jobs:
             stack_file_name: docker-compose.yaml
             script: |
               cd yamdb_final
-              sudo docker-compose up --build
-              sudo docker-compose exec -T web python manage.py makemigration users
-              sudo docker-compose exec -T web python manage.py makemigration api
-              sudo docker-compose exec -T web python manage.py migrate
-              sudo docker-compose exec -T web python manage.py collectstatic --no-input
+              sudo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb
+              sudo docker-compose up -d --build
 
   send_message:
     runs-on: ubuntu-latest
