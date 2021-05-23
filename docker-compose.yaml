@@ -5,6 +5,10 @@ services:
     image: postgres:12.4
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=${{ secrets.POSTGRES_USER }}
+      - POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+      - DB_NAME=${{ secrets.DB_NAME }}
     env_file:
       - ./.env
   web:
