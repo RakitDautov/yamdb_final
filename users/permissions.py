@@ -7,5 +7,5 @@ class IsAdminOrReadOnly(BasePermission):
             if request.method in SAFE_METHODS and request.user.is_admin:
                 return True
             else:
-                return ((request.user and request.user.is_staff) or
-                        request.user.is_admin)
+                return ((request.user and request.user.is_staff)
+                        or request.user.is_admin)
