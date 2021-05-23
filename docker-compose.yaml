@@ -9,7 +9,7 @@ services:
       - ./.env
   web:
     container_name: web
-    image: rocke/yamdb_final:latest
+    image: rocke215/yamdb_final:latest
     restart: always
     volumes:
       - static_value:/code/static/
