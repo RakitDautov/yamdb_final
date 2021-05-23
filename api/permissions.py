@@ -6,7 +6,9 @@ class IsAuthorOrAdminOrModeratorOrReadOnly(permissions.BasePermission):
         return (
             obj.author == request.user
             or request.method in permissions.SAFE_METHODS
-            or request.user.is_admin or request.user.is_moderator)
+            or request.user.is_admin
+            or request.user.is_moderator
+        )
 
 
 class IsAdminOrReadOnly(permissions.BasePermission):
