@@ -36,7 +36,7 @@ def registration_email(request):
         username=email, email=email, confirmation_code=confirmation_code
     )
     send_mail(
-        "Api_yamdb регистрация",
+        "yamdb_final регистрация",
         f"Используйте пароль для завершения регистрации {confirmation_code}",
         from_email=None,
         recipient_list=[email],
