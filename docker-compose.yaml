@@ -7,6 +7,7 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env
+
   web:
     container_name: web
     image: rocke215/yamdb_final:latest
