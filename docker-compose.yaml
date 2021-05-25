@@ -10,9 +10,9 @@ services:
 
   web:
     restart: always
-    image: rocke215/yamdb_final:latest
-    ports:
-      - "8000:8000" 
+    image: rocke215/api_yamdb:latest
+    expose:
+      - 8000
     volumes:
       - static_value:/code/static/
       - media_value:/code/media/
