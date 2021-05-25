@@ -4,4 +4,4 @@ WORKDIR /code
 COPY requirements.txt /code
 RUN pip install -r /code/requirements.txt
 COPY . /code
-CMD gunicorn yamdb_final.wsgi:application --bind 84.252.133.1:8000
+CMD gunicorn yamdb_final.wsgi:application --bind 0.0.0.0:8000

@@ -1,35 +1,35 @@
 version: '3.8'
+
 services:
   db:
-    container_name:  postgres
     image: postgres:12.4
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    env_file:
+      env_file:
       - ./.env
 
   web:
-    container_name: web
-    image: rocke215/yamdb_final:latest
+    build: .
     restart: always
+    command: gunicorn yamdb_final.wsgi:application --bind 0.0.0.0:8000
+    ports:
+      - "8000:8000" 
     volumes:
       - static_value:/code/static/
       - media_value:/code/media/
     depends_on:
       - db
-    expose:
-      - 8000
     env_file:
       - ./.env
 
   nginx:
-    container_name: nginx
     image: nginx:1.19.3
+
     ports:
       - "80:80"
 
     volumes:
-      - /nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - static_value:/var/html/static/
       - media_value:/var/html/media/
 
