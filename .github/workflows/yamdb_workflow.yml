@@ -41,7 +41,7 @@ jobs:
         uses: docker/build-push-action@v2 # Выполняет push образа в DockerHub
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/yamdb_final:latest
+          tags: rocke215/yamdb_final:latest
 
   deploy:
       runs-on: ubuntu-latest
