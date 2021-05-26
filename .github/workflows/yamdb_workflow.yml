@@ -60,7 +60,7 @@ jobs:
               cd yamdb_final
               sudo docker pull rocke215/yamdb_final
               sudo docker-compose stop
-              sudo docker-compose rm web -y
+              sudo docker-compose rm web
               sudo docker-compose up -d --build
               sudo docker-compose exec -T web python manage.py makemigrations users
               sudo docker-compose exec -T web python manage.py makemigrations api
