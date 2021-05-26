@@ -11,7 +11,7 @@ services:
   web:
     container_name: web
     restart: always
-    image: rocke215/api_yamdb:latest
+    image: rocke215/yamdb_final:latest
     expose:
       - 8000
     volumes:
